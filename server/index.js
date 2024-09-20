@@ -15,7 +15,6 @@ connectDB();
 app.use(express.json());
 
 const allowedOrigins = [
-    "http://localhost:5173", // Your local frontend
     "https://google-docs-clone-red.vercel.app" // Your deployed frontend
   ];
 
