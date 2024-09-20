@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #F3F3F3;
+}
+.container .ql-editor{
+    width: 21cm;
+    min-height: 29.7cm;
+    padding: 1in; 
+    margin: 1rem;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
+    background-color: white;
+}
+.container .ql-container {
+    display: flex;
+    justify-content: center;
+}
+.container .ql-toolbar{
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
+}
+@media print {
+    body {
+        background-color: white; /* Ensure a clean white background for printing */
+    }
+
+    .container .ql-editor {
+        width: 8.5in; /* Standard width for printing */
+        min-height: 11in; /* Standard height for printing */
+        padding: 0.5in; /* Reduced padding for print layout */
+        margin: 0;
+        box-shadow: none; /* Remove shadow for clean print */
+        border: none; /* Remove borders for print */
+    }
+
+    .container .ql-toolbar {
+        display: none; /* Hide toolbar when printing */
+    }
+
+    /* Remove any unnecessary margins or spacing around the editor */
+    .container {
+        padding: 0;
+        margin: 0;
+    }
+
+    @page {
+        size: A4; /* Set the page size explicitly to A4 */
+        margin: 1in; /* Control the margins during printing */
+    }
+}
