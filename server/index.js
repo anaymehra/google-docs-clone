@@ -14,6 +14,17 @@ connectDB();
 
 app.use(express.json());
 
+const allowedOrigins = [
+    "http://localhost:5173", // Your local frontend
+    "https://google-docs-clone-red.vercel.app" // Your deployed frontend
+  ];
+
+  app.use(cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST"],
+    credentials: true,
+  }));
+
 const io = new Server(server,{
     cors:{
         origin:"http://localhost:5173",
@@ -23,12 +34,6 @@ const io = new Server(server,{
 })
 
 const defaultValue = "";
-
-app.use(cors({
-    origin:"http://localhost:5173/",
-    methods:["GET","POST"],
-    credentials:true, 
-}));
 
 io.on("connection",(socket)=>{
     socket.on('get-document', async documentId=>{
