@@ -50,8 +50,6 @@ const TextEditor = () => {
   useEffect(()=>{
     if(socket==null || quill==null) return
     const interval = setInterval(()=>{ 
-      const content = quill.getContents();
-      console.log("Saving content:", content); // Log content to verify
       socket.emit('save-document',quill.getContents())
     },2000)
     return () =>{
